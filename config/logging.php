@@ -17,7 +17,7 @@ return [
     |
     */
 
-    'default' => env('LOG_CHANNEL', 'heaven'),
+    'default' => env('LOG_CHANNEL', 'stack'),
 
     /*
     |--------------------------------------------------------------------------
@@ -30,13 +30,13 @@ return [
     |
     | Available Drivers: "single", "daily", "slack", "syslog",
     |                    "errorlog", "monolog",
-    |                    "custom", "heaven"
+    |                    "custom", "stack"
     |
     */
 
     'channels' => [
-        'heaven' => [
-            'driver' => 'heaven',
+        'stack' => [
+            'driver' => 'stack',
             'channels' => ['single'],
             'ignore_exceptions' => false,
         ],

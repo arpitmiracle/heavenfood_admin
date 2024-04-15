@@ -5,7 +5,7 @@
             <a class="media align-items-center"
                 href="{{ route('admin.food.view', [$food['id']]) }}">
                 <img class="avatar avatar-lg mr-3"
-                    src="{{ asset('storage/product') }}/{{ $food['image'] }}"
+                    src="{{ asset('storage/app/public/product') }}/{{ $food['image'] }}"
                     onerror="this.src='{{ asset('public/assets/admin/img/100x100/food-default-image.png') }}'"
                     alt="{{ $food->name }} image">
                 <div class="media-body">

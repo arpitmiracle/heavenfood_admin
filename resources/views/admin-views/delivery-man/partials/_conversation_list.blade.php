@@ -9,7 +9,7 @@
         id="customer-{{$user->id}}">
         <div class="chat-user-info-img d-none d-md-block">
             <img class="avatar-img"
-                    src="{{asset('storage/profile/'.$user['image'])}}"
+                    src="{{asset('storage/app/public/profile/'.$user['image'])}}"
                     onerror="this.src='{{asset('public/assets/admin')}}/img/160x160/img1.jpg'"
                     alt="Image Description">
         </div>

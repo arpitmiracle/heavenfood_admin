@@ -135,7 +135,7 @@
 
                 <td>
                     <div style="text-align: end; margin-inline-end:15px;">
-                        <img style="max-width:250px;border:0;" src="{{asset('/storage/business/'.$logo)}}" title=""
+                        <img style="max-width:250px;border:0;" src="{{asset('/storage/app/public/business/'.$logo)}}" title=""
                             class="sitelogo" width="60%"  alt=""/>
                     </div>
                 </td>
@@ -166,7 +166,7 @@
 
                         <div style="display:flex; align-items:center;margin-top:10px;">
 
-                            <img style="border:0;border-radius:50%;" src="{{asset('/storage/restaurant/'.$order->restaurant->logo)}}" title=""
+                            <img style="border:0;border-radius:50%;" src="{{asset('/storage/app/public/restaurant/'.$order->restaurant->logo)}}" title=""
                                     class="sitelogo" width="20%"  alt=""/>
 
                             <span style="padding-inline-start: 5px;">{{$order->restaurant->name}}</span>

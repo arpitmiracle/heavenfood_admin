@@ -2,7 +2,7 @@
  * jQuery Is In Viewport.
  * https://github.com/frontid/jQueryIsInViewport
  * Marcelo IvÃ¡n Tosco (capynet)
- * Inspired on https://heavenoverflow.com/a/40658647/1413049
+ * Inspired on https://stackoverflow.com/a/40658647/1413049
  * ==================================================== */
 !function ($) {
   'use strict'

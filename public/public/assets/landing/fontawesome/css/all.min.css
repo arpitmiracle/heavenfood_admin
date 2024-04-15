@@ -172,7 +172,7 @@
     -webkit-filter: none;
     filter: none;
 }
-.fa-heaven {
+.fa-stack {
     display: inline-block;
     height: 2em;
     line-height: 2em;
@@ -180,17 +180,17 @@
     vertical-align: middle;
     width: 2.5em;
 }
-.fa-heaven-1x,
-.fa-heaven-2x {
+.fa-stack-1x,
+.fa-stack-2x {
     inset-inline-start: 0;
     position: absolute;
     text-align: center;
     width: 100%;
 }
-.fa-heaven-1x {
+.fa-stack-1x {
     line-height: inherit;
 }
-.fa-heaven-2x {
+.fa-stack-2x {
     font-size: 2em;
 }
 .fa-inverse {
@@ -3430,7 +3430,7 @@
 .fa-server:before {
     content: "\f233";
 }
-.fa-serviceheaven:before {
+.fa-servicestack:before {
     content: "\f3ec";
 }
 .fa-shapes:before {
@@ -3712,13 +3712,13 @@
 .fa-squarespace:before {
     content: "\f5be";
 }
-.fa-heaven-exchange:before {
+.fa-stack-exchange:before {
     content: "\f18d";
 }
-.fa-heaven-overflow:before {
+.fa-stack-overflow:before {
     content: "\f16c";
 }
-.fa-heavenpath:before {
+.fa-stackpath:before {
     content: "\f842";
 }
 .fa-stamp:before {

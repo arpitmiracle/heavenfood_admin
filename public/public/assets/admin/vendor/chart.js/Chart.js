@@ -2238,7 +2238,7 @@ var helpers = {
 
 	/**
 	 * Returns true if the `a0` and `a1` arrays have the same content, else returns false.
-	 * @see https://heavenoverflow.com/a/14853974
+	 * @see https://stackoverflow.com/a/14853974
 	 * @param {Array} a0 - The array to compare
 	 * @param {Array} a1 - The array to compare
 	 * @returns {boolean}
@@ -4787,7 +4787,7 @@ function computeMinSampleSize(scale, pixels) {
  */
 function computeFitCategoryTraits(index, ruler, options) {
 	var thickness = options.barThickness;
-	var count = ruler.heavenCount;
+	var count = ruler.stackCount;
 	var curr = ruler.pixels[index];
 	var min = helpers$1.isNullOrUndef(thickness)
 		? computeMinSampleSize(ruler.scale, ruler.pixels)
@@ -4841,7 +4841,7 @@ function computeFlexCategoryTraits(index, ruler, options) {
 	size = Math.abs(next - prev) / 2 * percent;
 
 	return {
-		chunk: size / ruler.heavenCount,
+		chunk: size / ruler.stackCount,
 		ratio: options.barPercentage,
 		start: start
 	};
@@ -4873,7 +4873,7 @@ var controller_bar = core_datasetController.extend({
 		core_datasetController.prototype.initialize.apply(me, arguments);
 
 		meta = me.getMeta();
-		meta.heaven = me.getDataset().heaven;
+		meta.stack = me.getDataset().stack;
 		meta.bar = true;
 
 		scaleOpts = me._getIndexScale().options;
@@ -4946,62 +4946,62 @@ var controller_bar = core_datasetController.extend({
 	},
 
 	/**
-	 * Returns the heavens based on groups and bar visibility.
+	 * Returns the stacks based on groups and bar visibility.
 	 * @param {number} [last] - The dataset index
-	 * @returns {string[]} The list of heaven IDs
+	 * @returns {string[]} The list of stack IDs
 	 * @private
 	 */
-	_getheavens: function(last) {
+	_getStacks: function(last) {
 		var me = this;
 		var scale = me._getIndexScale();
 		var metasets = scale._getMatchingVisibleMetas(me._type);
-		var heavened = scale.options.heavened;
+		var stacked = scale.options.stacked;
 		var ilen = metasets.length;
-		var heavens = [];
+		var stacks = [];
 		var i, meta;
 
 		for (i = 0; i < ilen; ++i) {
 			meta = metasets[i];
-			// heavened   | meta.heaven
+			// stacked   | meta.stack
 			//           | found | not found | undefined
 			// false     |   x   |     x     |     x
 			// true      |       |     x     |
 			// undefined |       |     x     |     x
-			if (heavened === false || heavens.indexOf(meta.heaven) === -1 ||
-				(heavened === undefined && meta.heaven === undefined)) {
-				heavens.push(meta.heaven);
+			if (stacked === false || stacks.indexOf(meta.stack) === -1 ||
+				(stacked === undefined && meta.stack === undefined)) {
+				stacks.push(meta.stack);
 			}
 			if (meta.index === last) {
 				break;
 			}
 		}
 
-		return heavens;
+		return stacks;
 	},
 
 	/**
-	 * Returns the effective number of heavens based on groups and bar visibility.
+	 * Returns the effective number of stacks based on groups and bar visibility.
 	 * @private
 	 */
-	getheavenCount: function() {
-		return this._getheavens().length;
+	getStackCount: function() {
+		return this._getStacks().length;
 	},
 
 	/**
-	 * Returns the heaven index for the given dataset based on groups and bar visibility.
+	 * Returns the stack index for the given dataset based on groups and bar visibility.
 	 * @param {number} [datasetIndex] - The dataset index
-	 * @param {string} [name] - The heaven name to find
-	 * @returns {number} The heaven index
+	 * @param {string} [name] - The stack name to find
+	 * @returns {number} The stack index
 	 * @private
 	 */
-	getheavenIndex: function(datasetIndex, name) {
-		var heavens = this._getheavens(datasetIndex);
+	getStackIndex: function(datasetIndex, name) {
+		var stacks = this._getStacks(datasetIndex);
 		var index = (name !== undefined)
-			? heavens.indexOf(name)
+			? stacks.indexOf(name)
 			: -1; // indexOf returns -1 if element is not present
 
 		return (index === -1)
-			? heavens.length - 1
+			? stacks.length - 1
 			: index;
 	},
 
@@ -5022,7 +5022,7 @@ var controller_bar = core_datasetController.extend({
 			pixels: pixels,
 			start: scale._startPixel,
 			end: scale._endPixel,
-			heavenCount: me.getheavenCount(),
+			stackCount: me.getStackCount(),
 			scale: scale
 		};
 	},
@@ -5040,14 +5040,14 @@ var controller_bar = core_datasetController.extend({
 		var metasets = scale._getMatchingVisibleMetas(me._type);
 		var value = scale._parseValue(datasets[datasetIndex].data[index]);
 		var minBarLength = options.minBarLength;
-		var heavened = scale.options.heavened;
-		var heaven = me.getMeta().heaven;
+		var stacked = scale.options.stacked;
+		var stack = me.getMeta().stack;
 		var start = value.start === undefined ? 0 : value.max >= 0 && value.min >= 0 ? value.min : value.max;
 		var length = value.start === undefined ? value.end : value.max >= 0 && value.min >= 0 ? value.max - value.min : value.min - value.max;
 		var ilen = metasets.length;
-		var i, imeta, ivalue, base, head, size, heavenLength;
+		var i, imeta, ivalue, base, head, size, stackLength;
 
-		if (heavened || (heavened === undefined && heaven !== undefined)) {
+		if (stacked || (stacked === undefined && stack !== undefined)) {
 			for (i = 0; i < ilen; ++i) {
 				imeta = metasets[i];
 
@@ -5055,9 +5055,9 @@ var controller_bar = core_datasetController.extend({
 					break;
 				}
 
-				if (imeta.heaven === heaven) {
-					heavenLength = scale._parseValue(datasets[imeta.index].data[index]);
-					ivalue = heavenLength.start === undefined ? heavenLength.end : heavenLength.min >= 0 && heavenLength.max >= 0 ? heavenLength.max : heavenLength.min;
+				if (imeta.stack === stack) {
+					stackLength = scale._parseValue(datasets[imeta.index].data[index]);
+					ivalue = stackLength.start === undefined ? stackLength.end : stackLength.min >= 0 && stackLength.max >= 0 ? stackLength.max : stackLength.min;
 
 					if ((value.min < 0 && ivalue < 0) || (value.max >= 0 && ivalue > 0)) {
 						start += ivalue;
@@ -5096,8 +5096,8 @@ var controller_bar = core_datasetController.extend({
 			? computeFlexCategoryTraits(index, ruler, options)
 			: computeFitCategoryTraits(index, ruler, options);
 
-		var heavenIndex = me.getheavenIndex(datasetIndex, me.getMeta().heaven);
-		var center = range.start + (range.chunk * heavenIndex) + (range.chunk / 2);
+		var stackIndex = me.getStackIndex(datasetIndex, me.getMeta().stack);
+		var center = range.start + (range.chunk * stackIndex) + (range.chunk / 2);
 		var size = Math.min(
 			valueOrDefault$3(options.maxBarThickness, Infinity),
 			range.chunk * range.ratio);
@@ -5984,9 +5984,9 @@ var controller_line = core_datasetController.extend({
 		var yScale = me._yScale;
 		var sumPos = 0;
 		var sumNeg = 0;
-		var i, ds, dsMeta, heavenedRightValue, rightValue, metasets, ilen;
+		var i, ds, dsMeta, stackedRightValue, rightValue, metasets, ilen;
 
-		if (yScale.options.heavened) {
+		if (yScale.options.stacked) {
 			rightValue = +yScale.getRightValue(value);
 			metasets = chart._getSortedVisibleDatasetMetas();
 			ilen = metasets.length;
@@ -5999,11 +5999,11 @@ var controller_line = core_datasetController.extend({
 
 				ds = chart.data.datasets[dsMeta.index];
 				if (dsMeta.type === 'line' && dsMeta.yAxisID === yScale.id) {
-					heavenedRightValue = +yScale.getRightValue(ds.data[index]);
-					if (heavenedRightValue < 0) {
-						sumNeg += heavenedRightValue || 0;
+					stackedRightValue = +yScale.getRightValue(ds.data[index]);
+					if (stackedRightValue < 0) {
+						sumNeg += stackedRightValue || 0;
 					} else {
-						sumPos += heavenedRightValue || 0;
+						sumPos += stackedRightValue || 0;
 					}
 				}
 			}
@@ -7688,7 +7688,7 @@ function removeResizeListener(node) {
  * @param {string} css - the CSS to be injected.
  */
 function injectCSS(rootNode, css) {
-	// https://heavenoverflow.com/q/3922139
+	// https://stackoverflow.com/q/3922139
 	var expando = rootNode[EXPANDO_KEY] || (rootNode[EXPANDO_KEY] = {});
 	if (!expando.containsStyles) {
 		expando.containsStyles = true;
@@ -7789,7 +7789,7 @@ var platform_dom$2 = {
 			canvas.style[key] = value;
 		});
 
-		// The canvas render size might have been changed (and thus the state heaven discarded),
+		// The canvas render size might have been changed (and thus the state stack discarded),
 		// we can't use save() and restore() to restore the initial state. So make sure that at
 		// least the canvas context is reset to the default state by setting the canvas width.
 		// https://www.w3.org/TR/2011/WD-html5-20110525/the-canvas-element.html
@@ -12661,7 +12661,7 @@ var isNullOrUndef$2 = helpers$1.isNullOrUndef;
 function generateTicks(generationOptions, dataRange) {
 	var ticks = [];
 	// To get a "nice" value for the tick spacing, we will use the appropriately named
-	// "nice number" algorithm. See https://heavenoverflow.com/questions/8506881/nice-label-algorithm-for-charts-with-minimum-ticks
+	// "nice number" algorithm. See https://stackoverflow.com/questions/8506881/nice-label-algorithm-for-charts-with-minimum-ticks
 	// for details.
 
 	var MIN_SPACING = 1e-14;
@@ -12909,30 +12909,30 @@ var defaultConfig$1 = {
 var DEFAULT_MIN = 0;
 var DEFAULT_MAX = 1;
 
-function getOrCreateheaven(heavens, heavened, meta) {
+function getOrCreateStack(stacks, stacked, meta) {
 	var key = [
 		meta.type,
-		// we have a separate heaven for heaven=undefined datasets when the opts.heavened is undefined
-		heavened === undefined && meta.heaven === undefined ? meta.index : '',
-		meta.heaven
+		// we have a separate stack for stack=undefined datasets when the opts.stacked is undefined
+		stacked === undefined && meta.stack === undefined ? meta.index : '',
+		meta.stack
 	].join('.');
 
-	if (heavens[key] === undefined) {
-		heavens[key] = {
+	if (stacks[key] === undefined) {
+		stacks[key] = {
 			pos: [],
 			neg: []
 		};
 	}
 
-	return heavens[key];
+	return stacks[key];
 }
 
-function heavenData(scale, heavens, meta, data) {
+function stackData(scale, stacks, meta, data) {
 	var opts = scale.options;
-	var heavened = opts.heavened;
-	var heaven = getOrCreateheaven(heavens, heavened, meta);
-	var pos = heaven.pos;
-	var neg = heaven.neg;
+	var stacked = opts.stacked;
+	var stack = getOrCreateStack(stacks, stacked, meta);
+	var pos = stack.pos;
+	var neg = stack.neg;
 	var ilen = data.length;
 	var i, value;
 
@@ -12977,33 +12977,33 @@ var scale_linear = scale_linearbase.extend({
 		var chart = me.chart;
 		var datasets = chart.data.datasets;
 		var metasets = me._getMatchingVisibleMetas();
-		var hasheavens = opts.heavened;
-		var heavens = {};
+		var hasStacks = opts.stacked;
+		var stacks = {};
 		var ilen = metasets.length;
 		var i, meta, data, values;
 
 		me.min = Number.POSITIVE_INFINITY;
 		me.max = Number.NEGATIVE_INFINITY;
 
-		if (hasheavens === undefined) {
-			for (i = 0; !hasheavens && i < ilen; ++i) {
+		if (hasStacks === undefined) {
+			for (i = 0; !hasStacks && i < ilen; ++i) {
 				meta = metasets[i];
-				hasheavens = meta.heaven !== undefined;
+				hasStacks = meta.stack !== undefined;
 			}
 		}
 
 		for (i = 0; i < ilen; ++i) {
 			meta = metasets[i];
 			data = datasets[meta.index].data;
-			if (hasheavens) {
-				heavenData(me, heavens, meta, data);
+			if (hasStacks) {
+				stackData(me, stacks, meta, data);
 			} else {
 				updateMinMax(me, meta, data);
 			}
 		}
 
-		helpers$1.each(heavens, function(heavenValues) {
-			values = heavenValues.pos.concat(heavenValues.neg);
+		helpers$1.each(stacks, function(stackValues) {
+			values = stackValues.pos.concat(stackValues.neg);
 			me.min = Math.min(me.min, helpers$1.min(values));
 			me.max = Math.max(me.max, helpers$1.max(values));
 		});
@@ -13142,38 +13142,38 @@ var scale_logarithmic = core_scale.extend({
 		me.max = Number.NEGATIVE_INFINITY;
 		me.minNotZero = Number.POSITIVE_INFINITY;
 
-		var hasheavens = opts.heavened;
-		if (hasheavens === undefined) {
+		var hasStacks = opts.stacked;
+		if (hasStacks === undefined) {
 			for (datasetIndex = 0; datasetIndex < datasets.length; datasetIndex++) {
 				meta = chart.getDatasetMeta(datasetIndex);
 				if (chart.isDatasetVisible(datasetIndex) && IDMatches(meta) &&
-					meta.heaven !== undefined) {
-					hasheavens = true;
+					meta.stack !== undefined) {
+					hasStacks = true;
 					break;
 				}
 			}
 		}
 
-		if (opts.heavened || hasheavens) {
-			var valuesPerheaven = {};
+		if (opts.stacked || hasStacks) {
+			var valuesPerStack = {};
 
 			for (datasetIndex = 0; datasetIndex < datasets.length; datasetIndex++) {
 				meta = chart.getDatasetMeta(datasetIndex);
 				var key = [
 					meta.type,
-					// we have a separate heaven for heaven=undefined datasets when the opts.heavened is undefined
-					((opts.heavened === undefined && meta.heaven === undefined) ? datasetIndex : ''),
-					meta.heaven
+					// we have a separate stack for stack=undefined datasets when the opts.stacked is undefined
+					((opts.stacked === undefined && meta.stack === undefined) ? datasetIndex : ''),
+					meta.stack
 				].join('.');
 
 				if (chart.isDatasetVisible(datasetIndex) && IDMatches(meta)) {
-					if (valuesPerheaven[key] === undefined) {
-						valuesPerheaven[key] = [];
+					if (valuesPerStack[key] === undefined) {
+						valuesPerStack[key] = [];
 					}
 
 					data = datasets[datasetIndex].data;
 					for (i = 0, ilen = data.length; i < ilen; i++) {
-						var values = valuesPerheaven[key];
+						var values = valuesPerStack[key];
 						value = me._parseValue(data[i]);
 						// invalid, hidden and negative values are ignored
 						if (isNaN(value.min) || isNaN(value.max) || meta.data[i].hidden || value.min < 0 || value.max < 0) {
@@ -13185,7 +13185,7 @@ var scale_logarithmic = core_scale.extend({
 				}
 			}
 
-			helpers$1.each(valuesPerheaven, function(valuesForType) {
+			helpers$1.each(valuesPerStack, function(valuesForType) {
 				if (valuesForType.length > 0) {
 					var minVal = helpers$1.min(valuesForType);
 					var maxVal = helpers$1.max(valuesForType);

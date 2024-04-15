@@ -216,12 +216,12 @@
                                 @endforeach
 
 
-                                @if ($payment->key_name == 'payheaven')
+                                @if ($payment->key_name == 'paystack')
                                     <div class="form-floating" style="margin-bottom: 10px">
                                         <label class="form-label">{{ translate('Callback Url') }} *</label>
                                         <input type="text" class="form-control" readonly
                                             placeholder="{{ translate('Callback Url') }} *"
-                                            value="{{ env('APP_ENV') == 'demo' ? '' : route('payheaven.callback') }}"
+                                            value="{{ env('APP_ENV') == 'demo' ? '' : route('paystack.callback') }}"
                                             {{ $is_published }}>
                                     </div>
                                 @endif

@@ -44,7 +44,7 @@
                                 @foreach (json_decode($con->file) as $img)
                                 <br>
                                     <img class="w-100"
-                                    src="{{asset('storage/conversation').'/'.$img}}">
+                                    src="{{asset('storage/app/public/conversation').'/'.$img}}">
                                     @endforeach
                                 @endif
                         </div>
@@ -62,7 +62,7 @@
                             @foreach (json_decode($con->file) as $img)
                             <br>
                                 <img class="w-100"
-                                src="{{asset('storage/conversation').'/'.$img}}">
+                                src="{{asset('storage/app/public/conversation').'/'.$img}}">
                                 @endforeach
                             @endif
                         </div>

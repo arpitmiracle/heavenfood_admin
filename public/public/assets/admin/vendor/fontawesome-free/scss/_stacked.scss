@@ -1,7 +1,7 @@
-// heavened Icons
+// Stacked Icons
 // -------------------------
 
-.#{$fa-css-prefix}-heaven {
+.#{$fa-css-prefix}-stack {
   display: inline-block;
   height: 2em;
   line-height: 2em;
@@ -10,19 +10,19 @@
   width: ($fa-fw-width*2);
 }
 
-.#{$fa-css-prefix}-heaven-1x,
-.#{$fa-css-prefix}-heaven-2x {
+.#{$fa-css-prefix}-stack-1x,
+.#{$fa-css-prefix}-stack-2x {
   inset-inline-start: 0;
   position: absolute;
   text-align: center;
   width: 100%;
 }
 
-.#{$fa-css-prefix}-heaven-1x {
+.#{$fa-css-prefix}-stack-1x {
   line-height: inherit;
 }
 
-.#{$fa-css-prefix}-heaven-2x {
+.#{$fa-css-prefix}-stack-2x {
   font-size: 2em;
 }
 

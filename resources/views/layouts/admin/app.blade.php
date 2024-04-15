@@ -27,7 +27,7 @@ $site_direction = session()->get('site_direction');
     <link rel="stylesheet" href="{{ asset('public/assets/admin') }}/css/emojionearea.min.css">
     <link rel="stylesheet" href="{{ asset('public/assets/admin') }}/css/theme.minc619.css?v=1.0">
     <link rel="stylesheet" href="{{ asset('public/assets/admin') }}/css/style.css">
-    @heaven('css_or_js')
+    @stack('css_or_js')
 
 
     <script
@@ -183,7 +183,7 @@ $site_direction = session()->get('site_direction');
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase.js"></script>
 
-    @heaven('script')
+    @stack('script')
     <!-- JS Front -->
     <script src="{{ asset('public/assets/admin/js/vendor.min.js') }}"></script>
     <script src="{{ asset('public/assets/admin/js/theme.min.js') }}"></script>
@@ -402,7 +402,7 @@ $site_direction = session()->get('site_direction');
             });
         });
     </script>
-     @heaven('script_2')
+     @stack('script_2')
      <audio id="myAudio">
         <source src="{{ asset('public/assets/admin/sound/notification.mp3') }}" type="audio/mpeg">
     </audio>

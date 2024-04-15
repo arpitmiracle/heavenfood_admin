@@ -179,7 +179,7 @@ class WalletController extends Controller
         );
         $additional_data = [
             'business_name' => BusinessSetting::where(['key'=>'business_name'])->first()?->value,
-            'business_logo' => asset('storage/business') . '/' .BusinessSetting::where(['key' => 'logo'])->first()?->value
+            'business_logo' => asset('storage/app/public/business') . '/' .BusinessSetting::where(['key' => 'logo'])->first()?->value
         ];
         $payment_info = new PaymentInfo(
             success_hook: 'collect_cash_success',
@@ -264,7 +264,7 @@ class WalletController extends Controller
         $methods = DB::table('addon_settings')->where('is_active',1)->where('settings_type', 'payment_config')
 
         ->when($published_status == 0, function($q){
-            $q->whereIn('key_name', ['ssl_commerz','paypal','stripe','razor_pay','senang_pay','paytabs','payheaven','paymob_accept','paytm','flutterwave','liqpay','bkash','mercadopago']);
+            $q->whereIn('key_name', ['ssl_commerz','paypal','stripe','razor_pay','senang_pay','paytabs','paystack','paymob_accept','paytm','flutterwave','liqpay','bkash','mercadopago']);
         })
         ->get();
         $env = env('APP_ENV') == 'live' ? 'live' : 'test';

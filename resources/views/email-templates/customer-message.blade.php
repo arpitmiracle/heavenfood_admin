@@ -134,7 +134,7 @@ $company_links = json_decode(BusinessSetting::where('key','landing_page_links')-
 
                 <td>
                     <div style="text-align: end; margin-inline-end:15px;">
-                        <img style="max-width:250px;border:0;" src="{{asset('/storage/business/'.$logo)}}" title=""
+                        <img style="max-width:250px;border:0;" src="{{asset('/storage/app/public/business/'.$logo)}}" title=""
                             class="sitelogo" width="60%"  alt=""/>
                     </div>
                 </td>

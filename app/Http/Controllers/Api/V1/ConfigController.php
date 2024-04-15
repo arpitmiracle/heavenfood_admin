@@ -468,13 +468,13 @@ class ConfigController extends Controller
         return  response()->json(
             [
                 'base_urls' => [
-                    'react_header_image_url' => asset('storage/react_header'),
-                    'react_services_image_url' => asset('storage/react_service_image'),
-                    'react_promotional_banner_image_url' => asset('storage/react_promotional_banner'),
-                    'react_delivery_section_image_url' => asset('storage/react_delivery_section_image'),
-                    'react_restaurant_section_image_url' => asset('storage/react_restaurant_section_image'),
-                    'react_download_apps_banner_image_url' => asset('storage/react_download_apps_image'),
-                    'react_download_apps_image_url' => asset('storage/react_download_apps_image'),
+                    'react_header_image_url' => asset('storage/app/public/react_header'),
+                    'react_services_image_url' => asset('storage/app/public/react_service_image'),
+                    'react_promotional_banner_image_url' => asset('storage/app/public/react_promotional_banner'),
+                    'react_delivery_section_image_url' => asset('storage/app/public/react_delivery_section_image'),
+                    'react_restaurant_section_image_url' => asset('storage/app/public/react_restaurant_section_image'),
+                    'react_download_apps_banner_image_url' => asset('storage/app/public/react_download_apps_image'),
+                    'react_download_apps_image_url' => asset('storage/app/public/react_download_apps_image'),
                 ],
 
                 'react_header_title'=>(isset($settings['react_header_title']) )  ? $settings['react_header_title'] : null ,
@@ -528,7 +528,7 @@ class ConfigController extends Controller
             return [];
         }
 
-        $methods = DB::table('addon_settings')->where('is_active',1)->whereIn('settings_type', ['payment_config'])->whereIn('key_name', ['ssl_commerz','paypal','stripe','razor_pay','senang_pay','paytabs','payheaven','paymob_accept','paytm','flutterwave','liqpay','bkash','mercadopago'])->get();
+        $methods = DB::table('addon_settings')->where('is_active',1)->whereIn('settings_type', ['payment_config'])->whereIn('key_name', ['ssl_commerz','paypal','stripe','razor_pay','senang_pay','paytabs','paystack','paymob_accept','paytm','flutterwave','liqpay','bkash','mercadopago'])->get();
         $env = env('APP_ENV') == 'live' ? 'live' : 'test';
         $credentials = $env . '_values';
 

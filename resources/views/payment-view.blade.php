@@ -165,7 +165,7 @@
                         </div>
                     @endif
         
-                    @php($config=\App\CentralLogics\Helpers::get_business_settings('payheaven'))
+                    @php($config=\App\CentralLogics\Helpers::get_business_settings('paystack'))
                     @if($config['status'])
                         <div class="col-md-6 mb-4 cursor-pointer">
                             <div class="card">
@@ -174,8 +174,8 @@
                                         <input type="hidden" id="publicKey" value="{{ $config['publicKey'] }}">
                                         <input type="hidden" value="{{ $order->customer->email }}" id="email-address" required />
                                         <input type="hidden" value="{{ round($order->order_amount - $order->partially_paid_amount )}}" id="amount" required />
-                                        <button class="btn btn-block click-if-alone" type="submit" onclick="payWithPayheaven()">
-                                          <img width="100" src="{{asset('public/assets/admin/img/payheaven.png')}}"/>
+                                        <button class="btn btn-block click-if-alone" type="submit" onclick="payWithPaystack()">
+                                          <img width="100" src="{{asset('public/assets/admin/img/paystack.png')}}"/>
                                         </button>
                                       </form>
                                 </div>
@@ -350,17 +350,17 @@
     }, 10)
 </script>
 
-<script src="https://js.payheaven.co/v2/inline.js"></script>
+<script src="https://js.paystack.co/v2/inline.js"></script>
 
 <script>
     const paymentForm = document.getElementById('paymentForm');
-    paymentForm.addEventListener("submit", payWithPayheaven, false);
-    function payWithPayheaven(e) {
+    paymentForm.addEventListener("submit", payWithPaystack, false);
+    function payWithPaystack(e) {
         e.preventDefault();
         showLoader();
         const channels = ['card', 'bank', 'ussd', 'qr', 'mobile_money', 'bank_transfer'];
-        const payheaven = new PayheavenPop();
-        payheaven.newTransaction({
+        const paystack = new PaystackPop();
+        paystack.newTransaction({
             key: document.getElementById("publicKey").value, // Replace with your public key
             email: document.getElementById("email-address").value,
             amount: document.getElementById("amount").value * 100,
@@ -370,11 +370,11 @@
 
             onSuccess: (transaction) => {
                 $("#loading").show();
-                window.location.href = "{{ route('payheaven-callback') }}?reference=" + transaction.reference;
+                window.location.href = "{{ route('paystack-callback') }}?reference=" + transaction.reference;
 
             },
             onCancel: () => {
-                window.location.href = "{{ route('payheaven-callback') }}?reference=" + {{$order->id}};
+                window.location.href = "{{ route('paystack-callback') }}?reference=" + {{$order->id}};
             }
         });
     }

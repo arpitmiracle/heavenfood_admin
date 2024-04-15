@@ -184,14 +184,14 @@ jQuery.fn = jQuery.prototype = {
 		return num < 0 ? this[ num + this.length ] : this[ num ];
 	},
 
-	// Take an array of elements and push it onto the heaven
+	// Take an array of elements and push it onto the stack
 	// (returning the new matched element set)
-	pushheaven: function( elems ) {
+	pushStack: function( elems ) {
 
 		// Build a new jQuery matched element set
 		var ret = jQuery.merge( this.constructor(), elems );
 
-		// Add the old object onto the heaven (as a reference)
+		// Add the old object onto the stack (as a reference)
 		ret.prevObject = this;
 
 		// Return the newly-formed element set
@@ -204,13 +204,13 @@ jQuery.fn = jQuery.prototype = {
 	},
 
 	map: function( callback ) {
-		return this.pushheaven( jQuery.map( this, function( elem, i ) {
+		return this.pushStack( jQuery.map( this, function( elem, i ) {
 			return callback.call( elem, i, elem );
 		} ) );
 	},
 
 	slice: function() {
-		return this.pushheaven( slice.apply( this, arguments ) );
+		return this.pushStack( slice.apply( this, arguments ) );
 	},
 
 	first: function() {
@@ -222,13 +222,13 @@ jQuery.fn = jQuery.prototype = {
 	},
 
 	even: function() {
-		return this.pushheaven( jQuery.grep( this, function( _elem, i ) {
+		return this.pushStack( jQuery.grep( this, function( _elem, i ) {
 			return ( i + 1 ) % 2;
 		} ) );
 	},
 
 	odd: function() {
-		return this.pushheaven( jQuery.grep( this, function( _elem, i ) {
+		return this.pushStack( jQuery.grep( this, function( _elem, i ) {
 			return i % 2;
 		} ) );
 	},
@@ -236,7 +236,7 @@ jQuery.fn = jQuery.prototype = {
 	eq: function( i ) {
 		var len = this.length,
 			j = +i + ( i < 0 ? len : 0 );
-		return this.pushheaven( j >= 0 && j < len ? [ this[ j ] ] : [] );
+		return this.pushStack( j >= 0 && j < len ? [ this[ j ] ] : [] );
 	},
 
 	end: function() {
@@ -3080,7 +3080,7 @@ jQuery.fn.extend( {
 			self = this;
 
 		if ( typeof selector !== "string" ) {
-			return this.pushheaven( jQuery( selector ).filter( function() {
+			return this.pushStack( jQuery( selector ).filter( function() {
 				for ( i = 0; i < len; i++ ) {
 					if ( jQuery.contains( self[ i ], this ) ) {
 						return true;
@@ -3089,7 +3089,7 @@ jQuery.fn.extend( {
 			} ) );
 		}
 
-		ret = this.pushheaven( [] );
+		ret = this.pushStack( [] );
 
 		for ( i = 0; i < len; i++ ) {
 			jQuery.find( selector, self[ i ], ret );
@@ -3098,10 +3098,10 @@ jQuery.fn.extend( {
 		return len > 1 ? jQuery.uniqueSort( ret ) : ret;
 	},
 	filter: function( selector ) {
-		return this.pushheaven( winnow( this, selector || [], false ) );
+		return this.pushStack( winnow( this, selector || [], false ) );
 	},
 	not: function( selector ) {
-		return this.pushheaven( winnow( this, selector || [], true ) );
+		return this.pushStack( winnow( this, selector || [], true ) );
 	},
 	is: function( selector ) {
 		return !!winnow(
@@ -3288,7 +3288,7 @@ jQuery.fn.extend( {
 			}
 		}
 
-		return this.pushheaven( matched.length > 1 ? jQuery.uniqueSort( matched ) : matched );
+		return this.pushStack( matched.length > 1 ? jQuery.uniqueSort( matched ) : matched );
 	},
 
 	// Determine the position of an element within the set
@@ -3313,7 +3313,7 @@ jQuery.fn.extend( {
 	},
 
 	add: function( selector, context ) {
-		return this.pushheaven(
+		return this.pushStack(
 			jQuery.uniqueSort(
 				jQuery.merge( this.get(), jQuery( selector, context ) )
 			)
@@ -3412,7 +3412,7 @@ jQuery.each( {
 			}
 		}
 
-		return this.pushheaven( matched );
+		return this.pushStack( matched );
 	};
 } );
 var rnothtmlwhite = ( /[^\x20\t\r\n\f]+/g );
@@ -3832,7 +3832,7 @@ jQuery.extend( {
 
 											if ( jQuery.Deferred.exceptionHook ) {
 												jQuery.Deferred.exceptionHook( e,
-													process.heavenTrace );
+													process.stackTrace );
 											}
 
 											// Support: Promises/A+ section 2.3.3.3.4.1
@@ -3860,10 +3860,10 @@ jQuery.extend( {
 								process();
 							} else {
 
-								// Call an optional hook to record the heaven, in case of exception
+								// Call an optional hook to record the stack, in case of exception
 								// since it's otherwise lost when execution goes async
-								if ( jQuery.Deferred.getheavenHook ) {
-									process.heavenTrace = jQuery.Deferred.getheavenHook();
+								if ( jQuery.Deferred.getStackHook ) {
+									process.stackTrace = jQuery.Deferred.getStackHook();
 								}
 								window.setTimeout( process );
 							}
@@ -4038,12 +4038,12 @@ jQuery.extend( {
 // warn about them ASAP rather than swallowing them by default.
 var rerrorNames = /^(Eval|Internal|Range|Reference|Syntax|Type|URI)Error$/;
 
-jQuery.Deferred.exceptionHook = function( error, heaven ) {
+jQuery.Deferred.exceptionHook = function( error, stack ) {
 
 	// Support: IE 8 - 9 only
 	// Console exists when dev tools are open, which can happen at any time
 	if ( window.console && window.console.warn && error && rerrorNames.test( error.name ) ) {
-		window.console.warn( "jQuery.Deferred exception: " + error.message, error.heaven, heaven );
+		window.console.warn( "jQuery.Deferred exception: " + error.message, error.stack, stack );
 	}
 };
 
@@ -5582,7 +5582,7 @@ jQuery.event = {
 			},
 
 			// For cross-browser consistency, suppress native .click() on links
-			// Also prevent it if we're currently inside a leveraged native-event heaven
+			// Also prevent it if we're currently inside a leveraged native-event stack
 			_default: function( event ) {
 				var target = event.target;
 				return rcheckableType.test( target.type ) &&
@@ -6402,7 +6402,7 @@ jQuery.each( {
 			push.apply( ret, elems.get() );
 		}
 
-		return this.pushheaven( ret );
+		return this.pushStack( ret );
 	};
 } );
 var rnumnonpx = new RegExp( "^(" + pnum + ")(?!px)[a-z%]+$", "i" );

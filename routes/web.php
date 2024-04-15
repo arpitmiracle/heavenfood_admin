@@ -15,7 +15,7 @@ use App\Http\Controllers\RazorPayController;
 use App\Http\Controllers\SenangPayController;
 use App\Http\Controllers\MercadoPagoController;
 use App\Http\Controllers\BkashPaymentController;
-use App\Http\Controllers\PayheavenController;
+use App\Http\Controllers\PaystackController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -136,11 +136,11 @@ if (!$is_published) {
             Route::get('callback', [FlutterwaveV3Controller::class, 'callback'])->name('callback')->withoutMiddleware([\App\Http\Middleware\VerifyCsrfToken::class]);
         });
 
-        //PAYheaven
-        Route::group(['prefix' => 'payheaven', 'as' => 'payheaven.'], function () {
-            Route::get('pay', [PayheavenController::class, 'index'])->name('pay');
-            Route::post('payment', [PayheavenController::class, 'redirectToGateway'])->name('payment')->withoutMiddleware([\App\Http\Middleware\VerifyCsrfToken::class]);
-            Route::get('callback', [PayheavenController::class, 'handleGatewayCallback'])->name('callback')->withoutMiddleware([\App\Http\Middleware\VerifyCsrfToken::class]);
+        //PAYSTACK
+        Route::group(['prefix' => 'paystack', 'as' => 'paystack.'], function () {
+            Route::get('pay', [PaystackController::class, 'index'])->name('pay');
+            Route::post('payment', [PaystackController::class, 'redirectToGateway'])->name('payment')->withoutMiddleware([\App\Http\Middleware\VerifyCsrfToken::class]);
+            Route::get('callback', [PaystackController::class, 'handleGatewayCallback'])->name('callback')->withoutMiddleware([\App\Http\Middleware\VerifyCsrfToken::class]);
         });
 
         //BKASH

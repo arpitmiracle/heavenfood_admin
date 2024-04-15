@@ -140,7 +140,7 @@
 
                                                 <center id="image-viewer-section" class="pt-2 mt-auto mb-auto">
                                                     <img class="initial-5" id="viewer"
-                                                        src="{{ asset('storage/react_landing') }}/{{ $react_self_registration_restaurant['image'] ?? null }}"
+                                                        src="{{ asset('storage/app/public/react_landing') }}/{{ $react_self_registration_restaurant['image'] ?? null }}"
                                                         onerror="this.src='{{ asset('public/assets/admin/img/160x160/img2.png') }}'"
                                                         alt="" />
                                                 </center>
@@ -255,7 +255,7 @@
 
                                                 <center id="image-viewer-section2" class="pt-2 mt-auto mb-auto">
                                                     <img class="initial-5" id="viewer2"
-                                                        src="{{ asset('storage/react_landing') }}/{{ $react_self_registration_delivery_man['image'] ?? null }}"
+                                                        src="{{ asset('storage/app/public/react_landing') }}/{{ $react_self_registration_delivery_man['image'] ?? null }}"
                                                         onerror="this.src='{{ asset('public/assets/admin/img/160x160/img2.png') }}'"
                                                         alt="" />
                                                 </center>

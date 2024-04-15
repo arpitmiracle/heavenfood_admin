@@ -20,7 +20,7 @@
             <div class="card-body">
                 <div class="row align-items-md-center">
                     <div class="col-md-4 mb-3 mb-md-0">
-                            <img class="rounded initial-13" src="{{asset('storage/campaign')}}/{{$campaign->image}}"
+                            <img class="rounded initial-13" src="{{asset('storage/app/public/campaign')}}/{{$campaign->image}}"
                                  onerror="this.src='{{asset('/public/assets/admin/img/900x400/img1.png')}}'"
                                  alt="Image Description">
                     </div>

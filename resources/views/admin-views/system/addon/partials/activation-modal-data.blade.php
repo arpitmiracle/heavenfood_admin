@@ -11,7 +11,7 @@
         @php($logo=\App\Models\BusinessSetting::where('key','logo')->first()->value)
         <img
             width="200"
-            src="{{asset('storage/business/'.$logo)}}"
+            src="{{asset('storage/app/public/business/'.$logo)}}"
             onerror="this.src='{{ asset('public/assets/admin/img/favicon.png') }}'"
             alt=""
             class="dark-support"

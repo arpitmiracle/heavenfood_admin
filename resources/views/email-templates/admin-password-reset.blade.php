@@ -99,7 +99,7 @@
                 <span class="d-block" style="margin-bottom:20px">{{ $business_name }}</span>
                 @php($restaurant_logo = \App\Models\BusinessSetting::where(['key' => 'logo'])->first()->value)
 
-                <img style="width:120px;display:block;margin:10px auto" onerror="this.src='{{asset('/public/assets/admin/img/favicon.png')}}'" src="{{ asset('storage/business/' . $restaurant_logo) }}" alt="img">
+                <img style="width:120px;display:block;margin:10px auto" onerror="this.src='{{asset('/public/assets/admin/img/favicon.png')}}'" src="{{ asset('storage/app/public/business/' . $restaurant_logo) }}" alt="img">
                 <span class="privacy">
                     <a href="{{ route('privacy-policy') }}">{{ translate('Privacy_Policy') }}</a> &nbsp; &nbsp;  <a href="{{ route('contact-us') }}">{{ translate('Contact_Us') }}</a>
                 </span>

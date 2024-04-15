@@ -259,7 +259,7 @@
             location.reload(true);
             // $('#zone_id').val(null).trigger('change');
             // $('#role_id').val(null).trigger('change');
-            // $('#viewer').attr('src','{{asset('storage/admin')}}/{{$e['image']}}');
+            // $('#viewer').attr('src','{{asset('storage/app/public/admin')}}/{{$e['image']}}');
         })
     </script>
 @endpush

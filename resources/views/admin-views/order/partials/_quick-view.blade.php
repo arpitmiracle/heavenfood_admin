@@ -13,7 +13,7 @@
                 <img class="img-responsive initial-33"
                     src=""
                     onerror=""
-                        data-zoom="{{asset('storage/product')}}/{{$product['image']}}"
+                        data-zoom="{{asset('storage/app/public/product')}}/{{$product['image']}}"
                         alt="Product image" width="">
                 <div class="cz-image-zoom-pane"></div>
             </div> --}}

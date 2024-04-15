@@ -80,7 +80,7 @@
                             <label class="input-label text-center d-block mt-auto mb-lg-0" >{{translate('messages.image')}}<small class="text-danger">* ( {{translate('messages.size')}}: 200 X 200 px )</small></label>
                             <center id="image-viewer-section" class="pt-2 mt-auto mb-auto">
                                 <img class="initial-5" id="viewer3"
-                                src="{{ asset('storage/landing') }}/{{ $restaurant_platform['image'] ?? null }}"
+                                src="{{ asset('storage/app/public/landing') }}/{{ $restaurant_platform['image'] ?? null }}"
                                 onerror="this.src='{{asset('public/assets/admin/img/400x400/img2.jpg')}}'"
                                  alt=""/>
                             </center>

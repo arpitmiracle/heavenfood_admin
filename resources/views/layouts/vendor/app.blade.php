@@ -14,7 +14,7 @@
     <!-- Favicon -->
     @php($logo=\App\Models\BusinessSetting::where(['key'=>'icon'])->first()->value)
     <link rel="shortcut icon" href="">
-    <link rel="icon" type="image/x-icon" href="{{asset('storage/business/'.$logo??'')}}">
+    <link rel="icon" type="image/x-icon" href="{{asset('storage/app/public/business/'.$logo??'')}}">
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
     <!-- CSS Implementing Plugins -->
@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="{{ asset('public/assets/admin') }}/css/style.css">
     <!-- Provider Panel Update CSS -->
     <link rel="stylesheet" href="{{asset('public/assets/admin')}}/css/vendor.css">
-    @heaven('css_or_js')
+    @stack('css_or_js')
 
     <script src="{{asset('public/assets/admin')}}/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside-mini-cache.js"></script>
     <link rel="stylesheet" href="{{asset('public/assets/admin')}}/css/toastr.css">
@@ -184,7 +184,7 @@
 <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase.js"></script>
 <!-- JS Implementing Plugins -->
 
-@heaven('script')
+@stack('script')
 
 <!-- JS Front -->
 <script src="{{asset('public/assets/admin')}}/js/vendor.min.js"></script>
@@ -399,7 +399,7 @@
     });
 </script>
 
-@heaven('script_2')
+@stack('script_2')
 <audio id="myAudio">
     <source src="{{asset('public/assets/admin/sound/notification.mp3')}}" type="audio/mpeg">
 </audio>

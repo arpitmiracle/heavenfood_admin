@@ -6,7 +6,7 @@ const GATEWAYS_PAYMENT_METHODS = [
     ['key' => 'stripe', 'value' => 'Stripe'],
     ['key' => 'paypal', 'value' => 'PayPal'],
     ['key' => 'razor_pay', 'value' => 'Razor Pay'],
-    ['key' => 'payheaven', 'value' => 'Payheaven'],
+    ['key' => 'paystack', 'value' => 'Paystack'],
     ['key' => 'senang_pay', 'value' => 'Senang Pay'],
     ['key' => 'paymob_accept', 'value' => 'Paymob Accept'],
     ['key' => 'flutterwave', 'value' => 'Flutter Wave'],
