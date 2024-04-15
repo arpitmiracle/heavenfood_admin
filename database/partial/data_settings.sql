@@ -12,7 +12,7 @@ INSERT INTO `data_settings` (`id`, `key`, `value`, `type`, `created_at`, `update
 (11, 'header_image_content', '{\"header_content_image\":\"2023-06-20-649195583412a.png\",\"header_bg_image\":\"2023-06-20-6491952b48c1c.png\"}', 'admin_landing_page', '2023-06-20 18:01:47', '2023-06-20 18:02:32'),
 (12, 'header_floating_content', '{\"header_floating_total_order\":\"5000\",\"header_floating_total_user\":\"999\",\"header_floating_total_reviews\":\"2330\"}', 'admin_landing_page', '2023-06-20 18:04:04', '2023-06-20 18:04:04'),
 (13, 'about_us_image_content', '2023-06-20-6491971deaf62.png', 'admin_landing_page', '2023-06-20 18:10:05', '2023-06-20 18:10:05'),
-(14, 'about_us_title', 'Stack Food', 'admin_landing_page', '2023-06-20 18:10:05', '2023-06-20 18:10:05'),
+(14, 'about_us_title', 'heaven Food', 'admin_landing_page', '2023-06-20 18:10:05', '2023-06-20 18:10:05'),
 (15, 'about_us_sub_title', 'is Best Delivery Service Near You', 'admin_landing_page', '2023-06-20 18:10:05', '2023-06-20 18:10:05'),
 (16, 'about_us_text', 'We make food delivery more interesting.\r\nFind the greatest deals from the restaurants near you.\r\nTesty & healthy dishes. Bring a restaurant into your home.', 'admin_landing_page', '2023-06-20 18:10:06', '2023-06-20 18:12:42'),
 (17, 'about_us_app_button_name', 'Download Now', 'admin_landing_page', '2023-06-20 18:10:06', '2023-06-20 18:10:06'),

@@ -10947,16 +10947,16 @@
             "time": "2023-02-22T19:59:53+00:00"
         },
         {
-            "name": "unicodeveloper/laravel-paystack",
+            "name": "unicodeveloper/laravel-payheaven",
             "version": "1.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/unicodeveloper/laravel-paystack.git",
+                "url": "https://github.com/unicodeveloper/laravel-payheaven.git",
                 "reference": "4c50abd6902463c7688a51efaef3c2a2147f6860"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/unicodeveloper/laravel-paystack/zipball/4c50abd6902463c7688a51efaef3c2a2147f6860",
+                "url": "https://api.github.com/repos/unicodeveloper/laravel-payheaven/zipball/4c50abd6902463c7688a51efaef3c2a2147f6860",
                 "reference": "4c50abd6902463c7688a51efaef3c2a2147f6860",
                 "shasum": ""
             },
@@ -10975,10 +10975,10 @@
             "extra": {
                 "laravel": {
                     "providers": [
-                        "Unicodeveloper\\Paystack\\PaystackServiceProvider"
+                        "Unicodeveloper\\Payheaven\\PayheavenServiceProvider"
                     ],
                     "aliases": {
-                        "Paystack": "Unicodeveloper\\Paystack\\Facades\\Paystack"
+                        "Payheaven": "Unicodeveloper\\Payheaven\\Facades\\Payheaven"
                     }
                 }
             },
@@ -10987,7 +10987,7 @@
                     "src/Support/helpers.php"
                 ],
                 "psr-4": {
-                    "Unicodeveloper\\Paystack\\": "src/"
+                    "Unicodeveloper\\Payheaven\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -11004,7 +11004,7 @@
                     "email": "info@devfunsho.com"
                 }
             ],
-            "description": "A Laravel Package for Paystack",
+            "description": "A Laravel Package for Payheaven",
             "keywords": [
                 "github",
                 "laravel",
@@ -11013,14 +11013,14 @@
                 "laravel 8",
                 "open source",
                 "payments",
-                "paystack",
-                "paystack.co",
+                "payheaven",
+                "payheaven.co",
                 "php",
                 "subscription"
             ],
             "support": {
-                "issues": "https://github.com/unicodeveloper/laravel-paystack/issues",
-                "source": "https://github.com/unicodeveloper/laravel-paystack/tree/1.1.0"
+                "issues": "https://github.com/unicodeveloper/laravel-payheaven/issues",
+                "source": "https://github.com/unicodeveloper/laravel-payheaven/tree/1.1.0"
             },
             "time": "2023-03-17T08:56:13+00:00"
         },

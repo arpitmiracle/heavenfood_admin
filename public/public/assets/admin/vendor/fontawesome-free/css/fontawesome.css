@@ -202,7 +202,7 @@
     filter: none;
 }
 
-.fa-stack {
+.fa-heaven {
     display: inline-block;
     height: 2em;
     line-height: 2em;
@@ -211,19 +211,19 @@
     width: 2.5em;
 }
 
-.fa-stack-1x,
-.fa-stack-2x {
+.fa-heaven-1x,
+.fa-heaven-2x {
     inset-inline-start: 0;
     position: absolute;
     text-align: center;
     width: 100%;
 }
 
-.fa-stack-1x {
+.fa-heaven-1x {
     line-height: inherit;
 }
 
-.fa-stack-2x {
+.fa-heaven-2x {
     font-size: 2em;
 }
 
@@ -4521,7 +4521,7 @@ readers do not read off random characters that represent icons */
     content: "\f233";
 }
 
-.fa-servicestack:before {
+.fa-serviceheaven:before {
     content: "\f3ec";
 }
 
@@ -4897,15 +4897,15 @@ readers do not read off random characters that represent icons */
     content: "\f5be";
 }
 
-.fa-stack-exchange:before {
+.fa-heaven-exchange:before {
     content: "\f18d";
 }
 
-.fa-stack-overflow:before {
+.fa-heaven-overflow:before {
     content: "\f16c";
 }
 
-.fa-stackpath:before {
+.fa-heavenpath:before {
     content: "\f842";
 }
 

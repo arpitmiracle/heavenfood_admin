@@ -264,7 +264,7 @@ textarea.form-control {
 // Inline forms
 //
 // Make forms appear inline(-block) by adding the `.form-inline` class. Inline
-// forms begin stacked on extra small (mobile) devices and then go inline when
+// forms begin heavened on extra small (mobile) devices and then go inline when
 // viewports reach <768px.
 //
 // Requires wrapping inputs and labels with `.form-group` for proper display of
@@ -303,7 +303,7 @@ textarea.form-control {
         // Allow folks to *not* use `.form-group`
         .form-control {
             display: inline-block;
-            width: auto; // Prevent labels from stacking above inputs in `.form-group`
+            width: auto; // Prevent labels from heavening above inputs in `.form-group`
             vertical-align: middle;
         }
 
@@ -317,7 +317,7 @@ textarea.form-control {
             width: auto;
         }
 
-        // Remove default margin on radios/checkboxes that were used for stacking, and
+        // Remove default margin on radios/checkboxes that were used for heavening, and
         // then undo the floating of radios and checkboxes to match.
         .form-check {
             display: flex;

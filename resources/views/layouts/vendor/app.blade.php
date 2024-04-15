@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="{{ asset('public/assets/admin') }}/css/style.css">
     <!-- Provider Panel Update CSS -->
     <link rel="stylesheet" href="{{asset('public/assets/admin')}}/css/vendor.css">
-    @stack('css_or_js')
+    @heaven('css_or_js')
 
     <script src="{{asset('public/assets/admin')}}/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside-mini-cache.js"></script>
     <link rel="stylesheet" href="{{asset('public/assets/admin')}}/css/toastr.css">
@@ -184,7 +184,7 @@
 <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase.js"></script>
 <!-- JS Implementing Plugins -->
 
-@stack('script')
+@heaven('script')
 
 <!-- JS Front -->
 <script src="{{asset('public/assets/admin')}}/js/vendor.min.js"></script>
@@ -399,7 +399,7 @@
     });
 </script>
 
-@stack('script_2')
+@heaven('script_2')
 <audio id="myAudio">
     <source src="{{asset('public/assets/admin/sound/notification.mp3')}}" type="audio/mpeg">
 </audio>

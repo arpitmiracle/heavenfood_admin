@@ -10,9 +10,9 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use App\Models\PaymentRequest;
 use App\Traits\Processor;
-use Unicodeveloper\Paystack\Facades\Paystack;
+use Unicodeveloper\Payheaven\Facades\Payheaven;
 
-class PaystackController extends Controller
+class PayheavenController extends Controller
 {
     use Processor;
 
@@ -21,7 +21,7 @@ class PaystackController extends Controller
 
     public function __construct(PaymentRequest $payment, User $user)
     {
-        $config = $this->payment_config('paystack', 'payment_config');
+        $config = $this->payment_config('payheaven', 'payment_config');
         $values = false;
         if (!is_null($config) && $config->mode == 'live') {
             $values = json_decode($config->live_values);
@@ -31,12 +31,12 @@ class PaystackController extends Controller
 
         if ($values) {
             $config = array(
-                'publicKey' => env('PAYSTACK_PUBLIC_KEY', $values->public_key),
-                'secretKey' => env('PAYSTACK_SECRET_KEY', $values->secret_key),
-                'paymentUrl' => env('PAYSTACK_PAYMENT_URL', 'https://api.paystack.co'),
+                'publicKey' => env('PAYheaven_PUBLIC_KEY', $values->public_key),
+                'secretKey' => env('PAYheaven_SECRET_KEY', $values->secret_key),
+                'paymentUrl' => env('PAYheaven_PAYMENT_URL', 'https://api.payheaven.co'),
                 'merchantEmail' => env('MERCHANT_EMAIL', $values->merchant_email),
             );
-            Config::set('paystack', $config);
+            Config::set('payheaven', $config);
         }
 
         $this->payment = $payment;
@@ -60,22 +60,22 @@ class PaystackController extends Controller
 
         $payer = json_decode($data['payer_information']);
 
-        $reference = Paystack::genTranxRef();
+        $reference = Payheaven::genTranxRef();
 
-        return view('payment-views.paystack', compact('data', 'payer', 'reference'));
+        return view('payment-views.payheaven', compact('data', 'payer', 'reference'));
     }
 
     public function redirectToGateway(Request $request)
     {
-        return Paystack::getAuthorizationUrl()->redirectNow();
+        return Payheaven::getAuthorizationUrl()->redirectNow();
     }
 
     public function handleGatewayCallback(Request $request)
     {
-        $paymentDetails = Paystack::getPaymentData();
+        $paymentDetails = Payheaven::getPaymentData();
         if ($paymentDetails['status'] == true) {
             $this->payment::where(['attribute_id' => $paymentDetails['data']['metadata']['orderID']])->update([
-                'payment_method' => 'paystack',
+                'payment_method' => 'payheaven',
                 'is_paid' => 1,
                 'transaction_id' => $request['trxref'],
             ]);

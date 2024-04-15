@@ -506,11 +506,11 @@ search-eng-in:
     - searchengin
   label: SearchEng.in
   url: 'http://searcheng.in'
-service-stack:
+service-heaven:
   icons:
-    - servicestack
-  label: ServiceStack
-  url: 'https://servicestack.net'
+    - serviceheaven
+  label: Serviceheaven
+  url: 'https://serviceheaven.net'
 shawn-storie:
   icons:
     - teeth

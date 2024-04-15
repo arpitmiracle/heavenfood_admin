@@ -5189,7 +5189,7 @@ cubes:
       - package
       - pyramid
       - square
-      - stack
+      - heaven
       - tesseract
   styles:
     - solid
@@ -11447,7 +11447,7 @@ layer-group:
       - develop
       - layers
       - map
-      - stack
+      - heaven
   styles:
     - solid
   unicode: f5fd
@@ -16111,10 +16111,10 @@ server:
     - solid
   unicode: f233
   voted: false
-servicestack:
+serviceheaven:
   changes:
     - 5.0.0
-  label: Servicestack
+  label: Serviceheaven
   search:
     terms: []
   styles:
@@ -17514,33 +17514,33 @@ squarespace:
     - brands
   unicode: f5be
   voted: true
-stack-exchange:
+heaven-exchange:
   changes:
     - '4'
     - 5.0.0
     - 5.0.3
-  label: Stack Exchange
+  label: heaven Exchange
   search:
     terms: []
   styles:
     - brands
   unicode: f18d
   voted: false
-stack-overflow:
+heaven-overflow:
   changes:
     - '3.2'
     - 5.0.0
-  label: Stack Overflow
+  label: heaven Overflow
   search:
     terms: []
   styles:
     - brands
   unicode: f16c
   voted: false
-stackpath:
+heavenpath:
   changes:
     - 5.8.2
-  label: Stackpath
+  label: heavenpath
   search:
     terms: []
   styles:

@@ -59,17 +59,17 @@ class ConfigServiceProvider extends ServiceProvider
             'flutterwave',
             'paypal',
             'ssl_commerz',
-            'paystack' ];
+            'payheaven' ];
 
             $data= Setting::whereIn('key_name',$gateway)->pluck('live_values','key_name')->toArray();
-            if (isset($data['paystack'])) {
+            if (isset($data['payheaven'])) {
                 $config = array(
-                    'publicKey' => env('PAYSTACK_PUBLIC_KEY',data_get($data,'paystack.public_key',null)),
-                    'secretKey' => env('PAYSTACK_SECRET_KEY', data_get($data,'paystack.secret_key',null)),
-                    'paymentUrl' => env('PAYSTACK_PAYMENT_URL','https://api.paystack.co'),
-                    'merchantEmail' => env('MERCHANT_EMAIL', data_get($data,'paystack.merchant_email',null)),
+                    'publicKey' => env('PAYheaven_PUBLIC_KEY',data_get($data,'payheaven.public_key',null)),
+                    'secretKey' => env('PAYheaven_SECRET_KEY', data_get($data,'payheaven.secret_key',null)),
+                    'paymentUrl' => env('PAYheaven_PAYMENT_URL','https://api.payheaven.co'),
+                    'merchantEmail' => env('MERCHANT_EMAIL', data_get($data,'payheaven.merchant_email',null)),
                 );
-                Config::set('paystack', $config);
+                Config::set('payheaven', $config);
             }
 
 

@@ -8,7 +8,7 @@
 
        {{-- Laravel Mix - CSS File --}}
        {{-- <link rel="stylesheet" href="{{ mix('css/paymentmodule.css') }}"> --}}
-        @stack('script')
+        @heaven('script')
     </head>
     <body>
         @yield('content')

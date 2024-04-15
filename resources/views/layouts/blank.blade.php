@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="{{ asset('public/assets/admin') }}/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('public/assets/admin') }}/css/theme.minc619.css?v=1.0">
     <link rel="stylesheet" href="{{ asset('public/assets/admin') }}/css/style.css">
-    @stack('css_or_js')
+    @heaven('css_or_js')
     <script
         src="{{asset('public/assets/admin')}}/vendor/hs-navbar-vertical-aside/hs-navbar-vertical-aside-mini-cache.js"></script>
     <link rel="stylesheet" href="{{asset('public/assets/admin')}}/css/toastr.css">
@@ -190,6 +190,6 @@
         });
     });
 </script>
-@stack('script')
+@heaven('script')
 </body>
 </html>

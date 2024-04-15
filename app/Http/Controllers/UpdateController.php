@@ -200,7 +200,7 @@ class UpdateController extends Controller
 
                 if (Schema::hasTable('addon_settings')) {
                     $data_values = Setting::whereIn('settings_type', ['payment_config'])
-                        ->where('key_name', 'paystack')
+                        ->where('key_name', 'payheaven')
                         ->first();
 
 
@@ -235,7 +235,7 @@ class UpdateController extends Controller
             'paypal',
             'stripe',
             'senang_pay',
-            'paystack',
+            'payheaven',
             'flutterwave',
             'mercadopago',
             'paymob_accept',
@@ -297,7 +297,7 @@ class UpdateController extends Controller
                         'server_key' => $decoded_value['server_key'],
                         'base_url' => $decoded_value['base_url'],
                     ];
-                } elseif ($gateway == 'paystack') {
+                } elseif ($gateway == 'payheaven') {
                     $additional_data = [
                         'status' => $decoded_value['status'],
                         'public_key' => $decoded_value['publicKey'],
