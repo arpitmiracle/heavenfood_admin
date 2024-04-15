@@ -130,7 +130,7 @@
                                 <label class="__upload-img aspect-5-1 m-auto d-block">
                                     <div class="img">
                                         <img src="{{asset('storage/banner')}}/{{$banner_image?->value ?? null}}"
-                                            onerror='this.src="{{asset('/public/assets/admin/img/upload-placeholder.png')}}"' alt="">
+                                            onerror='this.src="{{asset("/public/assets/admin/img/upload-placeholder.png")}}"' alt="">
                                     </div>
                                     <input type="file" name="promotional_banner_image" hidden>
                                 </label>
