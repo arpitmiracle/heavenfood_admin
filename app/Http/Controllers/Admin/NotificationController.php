@@ -78,7 +78,7 @@ class NotificationController extends Controller
 
         if($request->has('image'))
         {
-            $notification->image = url('/').'/storage/app/public/notification/'.$image_name;
+            $notification->image = url('/').'/storage/notification/'.$image_name;
         }
 
         try {
@@ -139,7 +139,7 @@ class NotificationController extends Controller
         ];
         $topic = $request->zone == 'all'?$topic_all_zone[$request->tergat]:$topic_zone_wise[$request->tergat];
             if($image_name){
-                $notification->image = url('/').'/storage/app/public/notification/'.$image_name;
+                $notification->image = url('/').'/storage/notification/'.$image_name;
             }
 
         try {

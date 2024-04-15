@@ -126,7 +126,7 @@
                                     </div>
                                     <div class="avatar avatar-sm avatar-circle">
                                         <img class="avatar-img" onerror="this.src='{{asset('public/assets/admin/img/160x160/img1.jpg')}}'"
-                                        src="{{asset('storage/app/public/vendor')}}/{{\App\CentralLogics\Helpers::get_loggedin_user()->image}}"
+                                        src="{{asset('storage/vendor')}}/{{\App\CentralLogics\Helpers::get_loggedin_user()->image}}"
                                         alt="Image Description">
                                         <span class="avatar-status avatar-sm-status avatar-status-success"></span>
                                     </div>
@@ -141,7 +141,7 @@
                                         <div class="avatar avatar-sm avatar-circle mr-2">
                                             <img class="avatar-img"
                                                  onerror="this.src='{{asset('public/assets/admin/img/160x160/img1.jpg')}}'"
-                                                 src="{{asset('storage/app/public/vendor')}}/{{\App\CentralLogics\Helpers::get_loggedin_user()->image}}"
+                                                 src="{{asset('storage/vendor')}}/{{\App\CentralLogics\Helpers::get_loggedin_user()->image}}"
                                                  alt="Owner image">
                                         </div>
                                         <div class="media-body">

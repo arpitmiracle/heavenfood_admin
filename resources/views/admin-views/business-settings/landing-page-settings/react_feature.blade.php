@@ -129,7 +129,7 @@
                                         <td>
                                             <div class="media align-items-center">
                                                 <img class="avatar avatar-lg mr-3"
-                                                    src="{{asset("storage/app/public/react_landing/feature/{$feature_item['img']}") }}"
+                                                    src="{{asset("storage/react_landing/feature/{$feature_item['img']}") }}"
                                                     onerror="this.src='{{ asset('public/assets/admin/img/160x160/img2.jpg') }}'"
                                                     alt="{{ $feature_item['title'] }}">
                                             </div>

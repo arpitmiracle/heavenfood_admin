@@ -146,7 +146,7 @@
     <script>
         $('#reset_btn').click(function(){
             $('#name').val("{{$lang==$default_lang?$category['name']:($translate[$lang]['name']??'')}}");
-            $('#viewer').attr('src', "{{asset('storage/app/public/category')}}/{{$category['image']}}");
+            $('#viewer').attr('src', "{{asset('storage/category')}}/{{$category['image']}}");
             $('#customFileEg1').val(null);
         })
     </script>

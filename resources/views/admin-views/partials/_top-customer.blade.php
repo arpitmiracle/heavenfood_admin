@@ -24,7 +24,7 @@
                     <center class="mt-6">
                         <img class="initial-41"
                              onerror="this.src='{{asset('public/assets/admin/img/160x160/img1.jpg')}}'"
-                             src="{{asset('storage/app/public/profile/'.$item->customer->image??'')}}">
+                             src="{{asset('storage/profile/'.$item->customer->image??'')}}">
                     </center>
                     <div class="text-center mt-2">
                         <span class="fz-10px">{{$item->customer['f_name']?? translate('messages.Not_exist')}}</span>

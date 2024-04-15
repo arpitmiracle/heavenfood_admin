@@ -16,7 +16,7 @@
     <title>{{ translate('messages.Password_recovery') }} | {{$app_name??translate('Heavenfood')}}</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{asset($icon ? 'storage/app/public/business/'.$icon : 'public/favicon.ico')}}">
+    <link rel="shortcut icon" href="{{asset($icon ? 'storage/business/'.$icon : 'public/favicon.ico')}}">
 
     <!-- Font -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
@@ -49,7 +49,7 @@
                     <a class="auth-logo mb-5" href="javascript:">
                         <img class="z-index-2"
                         @if (isset($systemlogo))
-                        src="{{ asset('storage/app/public/business/' . $systemlogo->value) }}"
+                        src="{{ asset('storage/business/' . $systemlogo->value) }}"
                         @else
                         src="{{asset('/public/assets/admin/img/auth-fav.png')}}"
                         @endif

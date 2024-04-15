@@ -234,7 +234,7 @@ class SubscriptionController extends Controller
 
             $additional_data = [
                 'business_name' => BusinessSetting::where(['key'=>'business_name'])->first()?->value,
-                'business_logo' => asset('storage/app/public/business') . '/' .BusinessSetting::where(['key' => 'logo'])->first()?->value
+                'business_logo' => asset('storage/business') . '/' .BusinessSetting::where(['key' => 'logo'])->first()?->value
             ];
             // $login_data = DataSetting::where('key', 'restaurant_login_url')->pluck('value')->first();
             $payment_info = new PaymentInfo(

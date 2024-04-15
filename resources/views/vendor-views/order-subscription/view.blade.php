@@ -135,7 +135,7 @@
                                     <img
                                         class="avatar-img"
                                         onerror="this.src='{{asset('public/assets/admin/img/160x160/img1.jpg')}}'"
-                                        src="{{asset('storage/app/public/profile/'.$subscription->customer->image)}}"
+                                        src="{{asset('storage/profile/'.$subscription->customer->image)}}"
                                         alt="Image Description">
                                 </div>
                                 <div class="media-body">

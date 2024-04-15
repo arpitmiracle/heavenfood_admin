@@ -78,9 +78,9 @@ $schedules = $subscription->schedules()->get();
                             <a class="media align-items-center"  href="{{isset($detail->food_id) ? route('vendor.food.view',[$detail->food['id']]) :  '#'}}">
                             <img class="avatar avatar-lg mr-3"
                                 @if (isset($detail->food['image']))
-                                src="{{asset('storage/app/public/product')}}/{{$detail->food['image']}}"
+                                src="{{asset('storage/product')}}/{{$detail->food['image']}}"
                                 @else
-                                src="{{ asset('storage/app/public/campaign')}}/{{ isset($detail->campaign['image']) ? $detail->campaign['image'] :'' }}"
+                                src="{{ asset('storage/campaign')}}/{{ isset($detail->campaign['image']) ? $detail->campaign['image'] :'' }}"
                                 @endif
                                 onerror="this.src='{{asset('public/assets/admin/img/160x160/img2.jpg')}}'" alt="{{isset($detail->food_id) ? $detail->food['name'] : $detail->campaign['name']}} image">
                                 <div class="media-body">

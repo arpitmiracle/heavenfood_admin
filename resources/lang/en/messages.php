@@ -4325,4 +4325,13 @@
   'totals' => 'Totals',
   'If_you_require_any_assistance_or_have_feedback_or_suggestions_about_our_site,_you' => 'If you require any assistance or have feedback or suggestions about our site  you',
   'can_email_us_at' => 'Can email us at',
+  'vehicle_view' => 'Vehicle view',
+  'Delivery_section_updated_successfully' => 'Delivery section updated successfully',
+  'testimonial_section_updated' => 'Testimonial section updated',
+  'Admin_landing_page_newsletter_updated' => 'Admin landing page newsletter updated',
+  'subscription_order_id' => 'Subscription order id',
+  'Total_amount' => 'Total amount',
+  'sl#' => 'Sl#',
+  'you_want_to_active_this_subscription' => 'You want to active this subscription',
+  'you_want_to_cancel_this_subscription' => 'You want to cancel this subscription',
 );

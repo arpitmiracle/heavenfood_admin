@@ -29,7 +29,7 @@ $logo = \App\Models\BusinessSetting::where('key','logo')->first()?->value;
             <span class="d-block">{{ translate('Thanks_&_Regards') }},</span>
             <span class="d-block" style="margin-bottom:20px">{{ $company_name }}</span>
 
-            <img style="width:230px;display:block;margin:10px auto" onerror="this.src='{{asset('/public/assets/admin/img/favicon.png')}}'" src="{{ asset('storage/app/public/business/' . $logo) }}" alt="public/img">
+            <img style="width:230px;display:block;margin:10px auto" onerror="this.src='{{asset('/public/assets/admin/img/favicon.png')}}'" src="{{ asset('storage/business/' . $logo) }}" alt="public/img">
         </td>
     </tr>
     <tr>

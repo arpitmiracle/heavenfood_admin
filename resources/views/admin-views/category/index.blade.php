@@ -75,7 +75,7 @@
                                 <center>
                                     <img class="initial-18" id="viewer"
                                         @if(isset($category))
-                                        src="{{asset('storage/app/public/category')}}/{{$category['image']}}"
+                                        src="{{asset('storage/category')}}/{{$category['image']}}"
                                         @else
                                         src="{{asset('public/assets/admin/img/100x100/food-default-image.png')}}"
                                         @endif

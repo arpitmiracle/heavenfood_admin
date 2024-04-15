@@ -44,7 +44,7 @@
 
                             <div class="shop-details-banner-content m-0">
                                 <div class="shop-details-banner-content-thumbnail mt-3">
-                                    <img src="{{ asset('storage/app/public/restaurant/' . $dm->logo) }}"
+                                    <img src="{{ asset('storage/restaurant/' . $dm->logo) }}"
                                         onerror="this.src='{{ asset('public/assets/admin/img/160x160/img1.jpg') }}'"
                                         class="thumbnail" alt="">
                                     <h3 class="mt-4 pt-3 mb-4 d-sm-none">{{ $dm->f_name.' '. $dm->l_name }}</h3>
@@ -165,12 +165,12 @@
                             <div class="d-flex flex-wrap gap-4 align-items-start">
                                 @foreach (json_decode($dm->identity_image , true) as $key => $item)
                                         <div class="attachment-card max-w-360">
-                                            <a href="{{ asset('storage/app/public/delivery-man/' . $item) }}"
+                                            <a href="{{ asset('storage/delivery-man/' . $item) }}"
                                                 download class="download-icon">
                                                 <img src="{{ asset('/public/assets/admin/new-img/download-icon.svg') }}"
                                                     alt="">
                                             </a>
-                                            <img src="{{ asset('storage/app/public/delivery-man/' . $item) }}"
+                                            <img src="{{ asset('storage/delivery-man/' . $item) }}"
                                                 data-toggle="modal" data-target="#image-modal"
                                                 class="aspect-615-350 cursor-pointer mw-100 object--cover" alt="">
                                         </div>
@@ -237,7 +237,7 @@
 
                                     @foreach ($item as $file)
                                         <?php
-                                        $path_info = pathinfo('storage/app/public/additional_documents/dm/' . $file);
+                                        $path_info = pathinfo('storage/additional_documents/dm/' . $file);
                                         $f_date = $path_info['extension'];
                                         ?>
 
@@ -245,16 +245,16 @@
                                                 @if ($f_date == 'pdf')
                                                 <div class="attachment-card min-w-260">
                                                     <label  for="">{{ translate($key) }}</label>
-                                                    <a href="{{ asset('storage/app/public/additional_documents/dm/'.$file) }}" target="_blank" rel="noopener noreferrer">
+                                                    <a href="{{ asset('storage/additional_documents/dm/'.$file) }}" target="_blank" rel="noopener noreferrer">
                                                         <div class="img ">
 
-                                                            <iframe src="https://docs.google.com/gview?url={{ asset('storage/app/public/additional_documents/dm/' . $file) }}&embedded=true"></iframe>
+                                                            <iframe src="https://docs.google.com/gview?url={{ asset('storage/additional_documents/dm/' . $file) }}&embedded=true"></iframe>
 
 
                                                         </div>
                                                     </a>
 
-                                                        <a href="{{ asset('storage/app/public/additional_documents/dm/' . $file) }}"
+                                                        <a href="{{ asset('storage/additional_documents/dm/' . $file) }}"
                                                             download class="download-icon mt-3">
                                                             <img src="{{ asset('/public/assets/admin/new-img/download-icon.svg') }}"
                                                                 alt="">
@@ -272,14 +272,14 @@
                                                 @else
                                                     <div class="attachment-card  min-w-260">
                                                         <label  for="">{{ translate($key) }}</label>
-                                                        <a href="{{ asset('storage/app/public/additional_documents/dm/'.$file) }}" target="_blank" rel="noopener noreferrer">
+                                                        <a href="{{ asset('storage/additional_documents/dm/'.$file) }}" target="_blank" rel="noopener noreferrer">
                                                         <div class="img">
 
-                                                            <iframe  src="https://docs.google.com/gview?url={{ asset('storage/app/public/additional_documents/dm/' . $file) }}&embedded=true"></iframe>
+                                                            <iframe  src="https://docs.google.com/gview?url={{ asset('storage/additional_documents/dm/' . $file) }}&embedded=true"></iframe>
 
                                                         </div>
                                                     </a>
-                                                        <a href="{{ asset('storage/app/public/additional_documents/dm/' . $file) }}"
+                                                        <a href="{{ asset('storage/additional_documents/dm/' . $file) }}"
                                                             download class="download-icon mt-3">
                                                             <img  src="{{ asset('/public/assets/admin/new-img/download-icon.svg') }}"
                                                                 alt="">
@@ -312,18 +312,18 @@
                                 @foreach ($item as $file)
 
                                 <?php
-                                    $path_info = pathinfo('storage/app/public/additional_documents/dm/' . $file);
+                                    $path_info = pathinfo('storage/additional_documents/dm/' . $file);
                                     $f_date = $path_info['extension'];
                                     ?>
                                     @if (in_array($f_date, ['jpg', 'jpeg', 'png']))
                                     <div class="attachment-card max-w-360">
                                             <label  for="">{{ translate($key) }}</label>
-                                            <a href="{{ asset('storage/app/public/additional_documents/dm/' . $file) }}"
+                                            <a href="{{ asset('storage/additional_documents/dm/' . $file) }}"
                                                 download class="download-icon mt-3">
                                                 <img  src="{{ asset('/public/assets/admin/new-img/download-icon.svg') }}"
                                                     alt="">
                                             </a>
-                                            <img src="{{ asset('storage/app/public/additional_documents/dm/' . $file) }}"
+                                            <img src="{{ asset('storage/additional_documents/dm/' . $file) }}"
                                               
                                                 class="aspect-615-350 cursor-pointer mw-100 object--cover" alt="">
                                             </div>

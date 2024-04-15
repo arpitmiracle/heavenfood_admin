@@ -411,7 +411,7 @@
                                 @foreach (json_decode($restaurant->additional_documents, true) as $key => $item)
                                     @foreach ($item as $file)
                                             <?php
-                                                $path_info = pathinfo('storage/app/public/additional_documents/' . $file);
+                                                $path_info = pathinfo('storage/additional_documents/' . $file);
                                                 $f_date = $path_info['extension'];
                                                 ?>
 
@@ -419,16 +419,16 @@
                                                 @if ($f_date == 'pdf')
                                                     <div class="attachment-card min-w-260">
                                                         <label for="">{{ translate($key) }}</label>
-                                                        <a href="{{ asset('storage/app/public/additional_documents/'.$file) }}" target="_blank" rel="noopener noreferrer">
+                                                        <a href="{{ asset('storage/additional_documents/'.$file) }}" target="_blank" rel="noopener noreferrer">
                                                             <div class="img">
 
-                                                                    <iframe src="https://docs.google.com/gview?url={{ asset('storage/app/public/additional_documents/' . $file) }}&embedded=true"></iframe>
+                                                                    <iframe src="https://docs.google.com/gview?url={{ asset('storage/additional_documents/' . $file) }}&embedded=true"></iframe>
 
                                                             </div>
                                                                 </a>
 
 
-                                                        <a href="{{ asset('storage/app/public/additional_documents/' . $file) }}" download
+                                                        <a href="{{ asset('storage/additional_documents/' . $file) }}" download
                                                             class="download-icon mt-3">
                                                             <img src="{{ asset('/public/assets/admin/new-img/download-icon.svg') }}" alt="">
                                                         </a>
@@ -444,14 +444,14 @@
                                                     @else
                                                     <div class="attachment-card  min-w-260">
                                                         <label for="">{{ translate($key) }}</label>
-                                                        <a href="{{ asset('storage/app/public/additional_documents/'.$file) }}" target="_blank" rel="noopener noreferrer">
+                                                        <a href="{{ asset('storage/additional_documents/'.$file) }}" target="_blank" rel="noopener noreferrer">
                                                             <div class="img">
 
-                                                                    <iframe src="https://docs.google.com/gview?url={{ asset('storage/app/public/additional_documents/' . $file) }}&embedded=true"></iframe>
+                                                                    <iframe src="https://docs.google.com/gview?url={{ asset('storage/additional_documents/' . $file) }}&embedded=true"></iframe>
 
                                                             </div>
                                                                 </a>
-                                                        <a href="{{ asset('storage/app/public/additional_documents/' . $file) }}" download
+                                                        <a href="{{ asset('storage/additional_documents/' . $file) }}" download
                                                             class="download-icon mt-3">
                                                             <img src="{{ asset('/public/assets/admin/new-img/download-icon.svg') }}" alt="">
                                                         </a>
@@ -478,17 +478,17 @@
                             @foreach (json_decode($restaurant->additional_documents, true) as $key => $item)
                                 @foreach ($item as $file)
                                     <?php
-                                        $path_info = pathinfo('storage/app/public/additional_documents/' . $file);
+                                        $path_info = pathinfo('storage/additional_documents/' . $file);
                                         $f_date = $path_info['extension'];
                                         ?>
                                     @if (in_array($f_date, ['jpg', 'jpeg', 'png']))
                                     <div class="attachment-card max-w-360">
                                         <label for="">{{ translate($key) }}</label>
-                                        <a href="{{ asset('storage/app/public/additional_documents/' . $file) }}" download
+                                        <a href="{{ asset('storage/additional_documents/' . $file) }}" download
                                             class="download-icon mt-3">
                                             <img src="{{ asset('/public/assets/admin/new-img/download-icon.svg') }}" alt="">
                                         </a>
-                                        <img src="{{ asset('storage/app/public/additional_documents/' . $file) }}" 
+                                        <img src="{{ asset('storage/additional_documents/' . $file) }}" 
                                             class="aspect-615-350 cursor-pointer mw-100 object--cover" alt="">
                                     </div>
                                     @endif

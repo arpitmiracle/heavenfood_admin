@@ -136,7 +136,7 @@
                                             <a class="table-rest-info"
                                                 href="{{ route('admin.delivery-man.pending_dm_view', [$dm['id']]) }}">
                                                 <img onerror="this.src='{{ asset('public/assets/admin/img/160x160/img1.jpg') }}'"
-                                                    src="{{ asset('storage/app/public/delivery-man') }}/{{ $dm['image'] }}"
+                                                    src="{{ asset('storage/delivery-man') }}/{{ $dm['image'] }}"
                                                     alt="{{ $dm['f_name'] }} {{ $dm['l_name'] }}">
                                                 <div class="info">
                                                     <h5 class="text-hover-primary mb-0">

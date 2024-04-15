@@ -149,7 +149,7 @@
                                             <img class="initial-10"
                                                 id="viewer"
                                                 onerror="this.src='{{ asset('public/assets/admin/img/160x160/img2.jpg') }}'"
-                                                src="{{ asset('storage/app/public/business/' . $logo) }}" alt="logo image" />
+                                                src="{{ asset('storage/business/' . $logo) }}" alt="logo image" />
                                         </center>
                                         <label class="input-label mt-2"> {{ translate('messages.logo') }} <small class="text-danger">* ( {{ translate('messages.ratio') }} 300x100 )</small></label>
                                         <div class="custom-file mb-3">
@@ -166,7 +166,7 @@
                                         <center class="h-100px">
                                             <img class="initial-10" id="iconViewer"
                                                 onerror="this.src='{{ asset('public/assets/admin/img/160x160/img2.jpg') }}'"
-                                                src="{{ asset('storage/app/public/business/' . $icon) }}" alt="Fav icon" />
+                                                src="{{ asset('storage/business/' . $icon) }}" alt="Fav icon" />
                                         </center>
                                         <label class="input-label mt-2"> {{ translate('messages.Fav Icon') }}<small class="text-danger">* ( {{ translate('messages.ratio') }} 150x150 )</small></label>
                                         <div class="custom-file mb-3">

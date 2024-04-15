@@ -32,7 +32,7 @@
         <div class="card __card">
             <div class="card-body">
                 <div class="succeed--status">
-                    <img class="img" onerror="this.src='{{ asset('public/assets/admin/img/100x100/food-default-image.png') }}'" src="{{ asset('storage/app/public/restaurant') }}/{{ $logo }}">
+                    <img class="img" onerror="this.src='{{ asset('public/assets/admin/img/100x100/food-default-image.png') }}'" src="{{ asset('storage/restaurant') }}/{{ $logo }}">
                     <h4 class="title">{{ translate('Congratulations!') }}</h4>
                     <h6 class="subtitle">
                         {{ translate('messages.Your_registration_has_been_completed_successfully.') }}
