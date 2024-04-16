@@ -565,9 +565,7 @@ class VendorController extends Controller
         })->where('tergat', 'restaurant')->where('created_at', '>=', \Carbon\Carbon::today()->subDays(7))->get();
 
         $notifications->append('data');
-
         $user_notifications = UserNotification::where('vendor_id', $vendor->id)->where('created_at', '>=', \Carbon\Carbon::today()->subDays(7))->get();
-
         $notifications =  $notifications->merge($user_notifications);
 
         try {

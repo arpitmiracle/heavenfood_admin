@@ -4317,4 +4317,5 @@
   'subscription_updated_successfully' => 'Subscription updated successfully',
   'delivery man max cash in hand exceeds' => 'Delivery man max cash in hand exceeds',
   'dm_maximum_order_exceed_warning' => 'Dm maximum order exceed warning',
+  'already_submitted' => 'Already submitted',
 );
